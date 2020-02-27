@@ -3,10 +3,12 @@ package metier;
 import java.util.*;
 
 public class PyRat {
-    List<Point> lstFromage;
+    private List<Point> lstFromage;
+    private HashSet fromagesConst;
     /* Méthode appelée une seule fois permettant d'effectuer des traitements "lourds" afin d'augmenter la performace de la méthode turn. */
     public void preprocessing(Map<Point, List<Point>> laby, int labyWidth, int labyHeight, Point position, List<Point> fromages) {
         lstFromage = fromages;
+        fromagesConst = new HashSet(lstFromage);
     }
 
     /* Méthode de test appelant les différentes fonctionnalités à développer.
@@ -38,7 +40,7 @@ public class PyRat {
     /* Regarde de manière performante (accès en ordre constant) s’il y a un fromage à la position pos.
         @return true s'il y a un fromage à la position pos, false sinon. */
     private boolean fromageIci_EnOrdreConstant(Point pos) {
-        HashSet fromagesConst = new HashSet(lstFromage);
+
 
         if (fromagesConst.contains(pos)){
             return true;
