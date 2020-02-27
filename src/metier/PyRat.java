@@ -53,6 +53,12 @@ public class PyRat {
     /* Indique si le joueur peut passer de la position (du Point) « de » au point « a ».
         @return true s'il y a un passage depuis  « de » vers « a ». */
     private boolean passagePossible(Point de, Point a) {
+        List<Point> lstPoint =  laby_Pyrat.get(de);
+        for (Point point : lstPoint){
+            if (point.equals(a)){
+                return true;
+            }
+        }
         return false;
     }
 
@@ -61,6 +67,7 @@ public class PyRat {
         @return true s'il y a un passage depuis  « de » vers « a ». */
     private boolean passagePossible_EnOrdreConstant(Point de, Point a){
         //dijkstra
+
         return false;
     }
 
