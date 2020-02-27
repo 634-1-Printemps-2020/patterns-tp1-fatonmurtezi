@@ -67,8 +67,8 @@ public class PyRat {
         @return true s'il y a un passage depuis  « de » vers « a ». */
     private boolean passagePossible_EnOrdreConstant(Point de, Point a){
         //dijkstra
-
-        return false;
+        Set<Point> lstPoint = new HashSet<>(labyPyrat.get(de));
+        return lstPoint.contains(a);
     }
 
     /* Retourne la liste des points qui ne peuvent pas être atteints depuis la position « pos ».
