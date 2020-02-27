@@ -4,13 +4,13 @@ import java.util.*;
 
 public class PyRat {
     private List<Point> lstFromage;
-    private HashSet fromagesConst;
-    private Map<Point,List<Point>>laby_Pyrat;
+    private Set fromagesConst;
+    private Map<Point,List<Point>> labyPyrat;
     /* Méthode appelée une seule fois permettant d'effectuer des traitements "lourds" afin d'augmenter la performace de la méthode turn. */
     public void preprocessing(Map<Point, List<Point>> laby, int labyWidth, int labyHeight, Point position, List<Point> fromages) {
         lstFromage = fromages;
-        fromagesConst = new HashSet(lstFromage);
-        laby_Pyrat = laby;
+        fromagesConst = new HashSet<>(lstFromage);
+        labyPyrat = laby;
     }
 
     /* Méthode de test appelant les différentes fonctionnalités à développer.
@@ -53,7 +53,7 @@ public class PyRat {
     /* Indique si le joueur peut passer de la position (du Point) « de » au point « a ».
         @return true s'il y a un passage depuis  « de » vers « a ». */
     private boolean passagePossible(Point de, Point a) {
-        List<Point> lstPoint =  laby_Pyrat.get(de);
+        List<Point> lstPoint =  labyPyrat.get(de);
         for (Point point : lstPoint){
             if (point.equals(a)){
                 return true;
